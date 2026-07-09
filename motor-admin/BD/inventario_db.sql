@@ -34,6 +34,26 @@ CREATE TABLE stock (
     imagen VARCHAR(255)
 );
 
+/*CREATE TABLE empleado (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    dni VARCHAR(20) NOT NULL UNIQUE,
+    telefono VARCHAR(20) NOT NULL,
+    direccion VARCHAR(40) NOT NULL,
+    id_especialidad INT NOT NULL,
+    FOREIGN KEY (id_especialidad) REFERENCES especialidades(id),
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+*/
+
+-- Crear primero la tabla de especialidades
+CREATE TABLE especialidades(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(30) NOT NULL
+);
+
+-- Luego crear la tabla de empleados
 CREATE TABLE empleado (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -41,8 +61,12 @@ CREATE TABLE empleado (
     dni VARCHAR(20) NOT NULL UNIQUE,
     telefono VARCHAR(20) NOT NULL,
     direccion VARCHAR(40) NOT NULL,
-    especialidad VARCHAR(20) NOT NULL,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id_especialidad INT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    valor_hora DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    FOREIGN KEY (id_especialidad) REFERENCES especialidades(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+    INDEX idx_id_especialidad (id_especialidad)
 );
 
 CREATE TABLE trabajos (
@@ -80,8 +104,8 @@ CREATE TABLE mensajes_respondidos (
   fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-ALTER TABLE empleado
-ADD valor_hora DECIMAL(10,2) NOT NULL DEFAULT 0.00;
+/*ALTER TABLE empleado
+ADD valor_hora DECIMAL(10,2) NOT NULL DEFAULT 0.00;*/
 
 ALTER TABLE servicios
 ADD costo_base DECIMAL(10,2) NOT NULL DEFAULT 0.00;
@@ -124,7 +148,3 @@ CREATE TABLE productos_usados (
     FOREIGN KEY (id_stock) REFERENCES stock(id)
 );
 
-CREATE TABLE especialidades(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(30) NOT NULL
-);

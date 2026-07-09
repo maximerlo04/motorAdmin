@@ -85,7 +85,7 @@ if (!isset($_SESSION)) {
       </li>
       <li class="list-group-item border-0">
           <a href="../ADMINISTRADOR/almacen-resenia.php" class="sidebar-link text-dark">
-              <i class="bi bi-journal-text me-2"></i>Almacén de Contactos
+              <i class="bi bi-journal-text me-2"></i>Responder Consultas
           </a>
       </li>
       <li class="list-group-item border-0">
@@ -95,22 +95,22 @@ if (!isset($_SESSION)) {
       </li>
       <li class="list-group-item border-0">
           <a href="../ADMINISTRADOR/solicitud-presupuesto.php" class="sidebar-link text-dark">
-              <i class="bi bi-receipt me-2"></i>Tabla de Consultas y Presupuestos
+              <i class="bi bi-file-earmark-text me-2"></i>Tabla de Consultas y Presupuestos
           </a>
       </li>
       <li class="list-group-item border-0">
           <a href="../ADMINISTRADOR/ABM-servicios.php" class="sidebar-link text-dark">
-              <i class="bi bi-award-fill me-2"></i>ABM Servicios
+              <i class="bi bi-tools me-2"></i>ABM Servicios
           </a>
       </li>
       <li class="list-group-item border-0">
           <a href="../ADMINISTRADOR/ABM-especialidades.php" class="sidebar-link text-dark">
-              <i class="bi bi-award-fill me-2"></i>ABM Especialidades
+              <i class="bi bi-list-check me-2"></i>ABM Especialidades
           </a>
       </li>
       <li class="list-group-item border-0">
           <a href="../ADMINISTRADOR/facturacion.php" class="sidebar-link text-dark">
-              <i class="bi bi-award-fill me-2"></i>Facturas
+              <i class="bi bi-file-earmark-bar-graph me-2"></i>Facturas
           </a>
       </li>
     </ul>

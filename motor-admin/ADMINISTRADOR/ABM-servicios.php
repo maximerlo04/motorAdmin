@@ -128,7 +128,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     <script>
         $(document).ready(function () {
             $('#tablaServicios').DataTable({
-            order: [[1, 'asc']],
+            order: [[0, 'desc']],
             columnDefs: [
                 { orderable: false, targets: [3] } 
             ],

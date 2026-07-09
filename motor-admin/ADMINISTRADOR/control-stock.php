@@ -293,7 +293,7 @@ function confirmPriceUpdate() {
 <script>
     $(document).ready(function () {
         $('#tabla-stock').DataTable({
-        order: [[1, 'asc']],
+        order: [[0, 'desc']],
         columnDefs: [
           { orderable: false, targets: [4, 5, 6] } 
         ],

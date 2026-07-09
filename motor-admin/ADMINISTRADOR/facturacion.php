@@ -176,6 +176,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     <script>
         $(document).ready(function () {
             $('#tablaFacturas').DataTable({
+                order: [[0, 'desc']],
                 columnDefs: [
                 { orderable: false, targets: [6, 7] } 
                 ],

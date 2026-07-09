@@ -606,7 +606,7 @@ if (!isset($_SESSION)) {
     <script>
         $(document).ready(function () {
             var table = $('#tabla-asignar-trabajo').DataTable({
-                order: [[1, 'asc']],
+                order: [[0, 'asc']],
                 columnDefs: [
                     { orderable: false, targets: [3, 7, 8, 9] } 
                 ],

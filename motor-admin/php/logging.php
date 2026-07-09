@@ -1,6 +1,6 @@
 <?php
 session_start(); // Debe ser lo primero
-require_once("../connection.php");
+include("../connection.php");
 
 
 // Validación básica

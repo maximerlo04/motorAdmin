@@ -29,8 +29,22 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     $result = mysqli_query($connection,$sql);
     
     echo'<div class="container my-5">
-        <h2 class="text-center mb-4">Contactos</h2>
-        <div class="table-responsive">
+        <h2 class="text-center mb-4">Responder Consultas</h2>';
+    
+    // Mostrar mensajes de éxito o error
+    if (isset($_GET['success']) && $_GET['success'] == '1') {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>¡Éxito!</strong> La respuesta se ha enviado correctamente al usuario.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
+    } elseif (isset($_GET['error']) && $_GET['error'] == '1') {
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> No se pudo enviar el email. La respuesta se guardó en la base de datos.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
+    }
+    
+    echo '<div class="table-responsive">
             <table id="tabla-contactos" class="table table-bordered table-hover align-middle">
             <thead class="table-dark">
                 <tr>
@@ -117,7 +131,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
 <script>
     $(document).ready(function () {
         $('#tabla-contactos').DataTable({
-        order: [[1, 'asc']],
+        order: [[5, 'desc']],
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
         }

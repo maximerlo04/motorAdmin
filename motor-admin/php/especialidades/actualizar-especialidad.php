@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "UPDATE especialidades SET nombre = ? WHERE id = ?";
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("sdi", $nombre, $id);
+    $stmt->bind_param("si", $nombre, $id);
 
     if ($stmt->execute()) {
         header("Location: ../../ADMINISTRADOR/ABM-especialidades.php");

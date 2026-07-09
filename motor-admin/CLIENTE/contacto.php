@@ -15,6 +15,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+0wPthOhA8rsVjQerV_D3B3z_oB-4o5uG0i3F_M4hK2f" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
@@ -23,6 +24,29 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
     ?>
     <section class="section container py-5">
         <h2 class="mb-4 text-center">Contáctanos</h2>
+        
+        <?php
+        // Mostrar mensajes de éxito o error
+        if (isset($_GET['success']) && $_GET['success'] == '1') {
+            if (isset($_GET['email_error']) && $_GET['email_error'] == '1') {
+                echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>¡Consulta enviada!</strong> Tu mensaje se ha guardado correctamente, pero hubo un problema al enviar el email de confirmación.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>';
+            } else {
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>¡Consulta enviada exitosamente!</strong> Hemos recibido tu mensaje y te hemos enviado un email de confirmación.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>';
+            }
+        } elseif (isset($_GET['error']) && $_GET['error'] == '1') {
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> No se pudo enviar tu consulta. Por favor, inténtalo nuevamente.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+        }
+        ?>
+        
         <form class="row g-3" action="../php/procesar_formulario_de_contacto.php" method="POST">
             <div class="col-md-6">
                 <input
@@ -82,5 +106,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -21,11 +21,28 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     <?php
         include("../UTILS/sidebar.php");
         include("../connection.php");
-        $sqlEmpleado = "SELECT * FROM empleado ORDER BY fecha DESC";
+        $sqlEmpleado = "SELECT 
+  e.id,
+  e.nombre AS nombre,
+  e.email,
+  e.dni,
+  e.telefono,
+  e.direccion,
+  esp.nombre AS especialidad,
+  e.valor_hora,
+  e.fecha AS fecha
+  
+FROM empleado e
+JOIN especialidades esp ON e.id_especialidad = esp.id
+";
+
+
         $resultEmpleado = mysqli_query($connection,$sqlEmpleado);
 
         $sqlUsuario = "SELECT * FROM usuarios ORDER BY fecha_registro DESC";
         $resultUsuario = mysqli_query($connection,$sqlUsuario);
+
+        $especialidades=mysqli_query($connection,"SELECT * FROM especialidades");
     ?>
     
     
@@ -84,13 +101,18 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                             <input type="text" class="form-control" id="direccion" name="direccion" required>
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="especialidad" class="form-label">Especialidad</label>
-                            <input type="text" class="form-control" id="especialidad" name="especialidad" required>
-                        </div>
+                    
+                    <div class="col-md-6">
+                        <select id="especialidad" name="id_especialidad" class="form-select select2" required>
+                            <?php while($especialidad = mysqli_fetch_assoc($especialidades)): ?>
+                            <option value="<?= $especialidad['id'] ?>"><?= htmlspecialchars($especialidad['nombre']) ?></option>
+                            <?php endwhile; ?>
+                        </select>
+
+                    </div>
                         <div class="col-md-6">
                             <label for="valor_hora" class="form-label">Valor por hora ($)</label>
-                            <input type="number" step="0.01" class="form-control" id="valor_hora" name="valor_hora" required>
+                            <input type="number" step="0.01" class="form-control" id="valor_hora" name="valor_hora" >
                         </div>
 
                         <div class="col-12 text-end">
@@ -112,8 +134,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                         <th>Teléfono</th>
                         <th>Dirección</th>
                         <th>Especialidad</th>
-                        <th>Valor por hora</th>
                         <th>Fecha de Registro</th>
+                        <th>Valor por hora</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -127,6 +149,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                             <td><?= htmlspecialchars($row['telefono']) ?></td>
                             <td><?= htmlspecialchars($row['direccion']) ?></td>
                             <td><?= htmlspecialchars($row['especialidad']) ?></td>
+                            <td><?= htmlspecialchars($row['fecha']) ?></td>
                             <td>
                                 <form method="POST" action="../php/actualizar_valor_hora.php" class="d-flex">
                                     <input type="hidden" name="id_empleado" value="<?= $row['id'] ?>">
@@ -135,7 +158,6 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                                     <button type="submit" class="btn btn-sm btn-success">💾</button>
                                 </form>
                             </td>
-                            <td><?= htmlspecialchars($row['fecha']) ?></td>
                             <td>
                                 <button type="button" class="btn btn-danger btn-sm"
                                         onclick="confirmDelete(<?= $row['id'] ?>, '<?= htmlspecialchars($row['nombre']) ?>', 'empleado')">
@@ -248,7 +270,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
         tablaActiva.classList.remove('d-none');
     });
         $('#tabla-usuario').DataTable({
-            order: [[1, 'asc']], 
+            order: [[0, 'desc']], 
             columnDefs: [
                 { orderable: false, targets: [8, 9] } 
             ],
@@ -259,7 +281,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
 
         $(document).ready(function () {
             $('#tabla-empleado').DataTable({
-            order: [[1, 'asc']],
+            order: [[0, 'desc']],
             columnDefs: [
                 { orderable: false, targets: [8, 9] } 
             ],
