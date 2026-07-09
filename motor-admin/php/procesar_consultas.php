@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../connection.php");
+include("/connection.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Si el usuario está logueado, toma nombre y email de la sesión

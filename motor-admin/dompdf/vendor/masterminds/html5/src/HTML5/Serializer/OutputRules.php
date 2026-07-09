@@ -303,7 +303,7 @@ class OutputRules implements RulesInterface
             $this->xpath = new \DOMXPath($ele->ownerDocument);
         }
 
-        foreach ($this->xpath->query('namespace::*[not(.=../../namespace::*)]', $ele) as $nsNode) {
+        foreach ($this->xpath->query('namespace::*[not(.=//namespace::*)]', $ele) as $nsNode) {
             if (!in_array($nsNode->nodeValue, $this->implicitNamespaces)) {
                 $this->wr(' ')->wr($nsNode->nodeName)->wr('="')->wr($nsNode->nodeValue)->wr('"');
             }

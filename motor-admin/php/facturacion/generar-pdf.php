@@ -1,8 +1,8 @@
 <?php
-require_once '../../dompdf/autoload.inc.php';
+require_once '//dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
-include("../../connection.php");
+include("//connection.php");
 
 if (!isset($_GET['id'])) {
     die("ID de factura no especificado.");
@@ -115,7 +115,7 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 $nombre_archivo = "factura_{$factura['id']}.pdf";
-$ruta_archivo = "../../facturas/" . $nombre_archivo;
+$ruta_archivo = "//facturas/" . $nombre_archivo;
 file_put_contents($ruta_archivo, $dompdf->output());
 
 // Guardar nombre del archivo en la base de datos
@@ -125,5 +125,5 @@ $stmtUpdate->bind_param("si", $nombre_archivo, $id_factura);
 $stmtUpdate->execute();
 
 // Redirigir a página para visualizar
-header("Location: ../../facturas/$nombre_archivo");
+header("Location: //facturas/$nombre_archivo");
 exit();

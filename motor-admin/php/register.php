@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $connection->real_escape_string($_POST['nombre']);
     $email = $connection->real_escape_string($_POST['email']);
@@ -25,6 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-header("Location: ../index.php");
+header("Location: /index.php");
 
 ?>

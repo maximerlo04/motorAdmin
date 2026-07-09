@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 // Verificar si la sesión está activa y el rol es 'Cliente' o 'Empleado'
 if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['rol'] !== 'Empleado')) {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -13,14 +13,14 @@ if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['ro
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../CSS/index.css" rel="stylesheet" type="text/css">
-  <link href="../CSS/pages-style.css" rel="stylesheet" type="text/css">
+  <link href="/CSS/index.css" rel="stylesheet" type="text/css">
+  <link href="/CSS/pages-style.css" rel="stylesheet" type="text/css">
   <title>MotorAdmin Cliente</title>
 </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-      <a class="navbar-brand" href="../CLIENTE/inicio.php"><img src="../images/motorAdmin-logo.png" alt="Logo" style="width: 50px; height: auto;"></a>
+      <a class="navbar-brand" href="/CLIENTE/inicio.php"><img src="/images/motorAdmin-logo.png" alt="Logo" style="width: 50px; height: auto;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,29 +28,29 @@ if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['ro
       <div class="collapse navbar-collapse bg-light" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="../CLIENTE/inicio.php">Inicio</a>
+            <a class="nav-link" href="/CLIENTE/inicio.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../CLIENTE/servicios.php">Servicios</a>
+            <a class="nav-link" href="/CLIENTE/servicios.php">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../CLIENTE/turnos.php">Turnos</a>
+            <a class="nav-link" href="/CLIENTE/turnos.php">Turnos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../CLIENTE/presupuesto.php">Presupuesto</a>
+            <a class="nav-link" href="/CLIENTE/presupuesto.php">Presupuesto</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../CLIENTE/mis-facturas.php">Mis Facturas</a>
+            <a class="nav-link" href="/CLIENTE/mis-facturas.php">Mis Facturas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../CLIENTE/contacto.php">Contáctanos</a>
+            <a class="nav-link" href="/CLIENTE/contacto.php">Contáctanos</a>
           </li>
         </ul>
         <div class="d-flex align-items-center">
           <?php if (isset($_SESSION['nombre'])): ?>
             <span class="me-3 text-dark fw-bold">¡Hola, <?php echo htmlspecialchars($_SESSION['nombre']); ?>!</span>
           <?php endif; ?>
-          <a href="../php/logout.php" class="btn btn-outline-danger">
+          <a href="/php/logout.php" class="btn btn-outline-danger">
             <i class="bi bi-box-arrow-right"></i> Logout
           </a>
         </div>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['ro
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="loginForm" action="../php/logging.php" method="POST">
+          <form id="loginForm" action="/php/logging.php" method="POST">
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Email</label>
               <input type="text" name="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
@@ -111,7 +111,7 @@ if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['ro
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="registerForm" action="../php/register.php" method="POST">
+          <form id="registerForm" action="/php/register.php" method="POST">
             <div class="mb-3">
               <label for="registerName" class="form-label">Nombre</label>
               <input type="text" name="nombre" class="form-control" id="registerName" required>
@@ -170,7 +170,7 @@ if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['ro
       const formData = new FormData(this);
       console.log('Form data:', Object.fromEntries(formData));
       
-      fetch('../php/logging.php', {
+      fetch('/php/logging.php', {
         method: 'POST',
         body: formData
       })
@@ -212,7 +212,7 @@ if (!isset($_SESSION['rol']) || ($_SESSION['rol'] !== 'Cliente' && $_SESSION['ro
     
     const formData = new FormData(this);
     
-    fetch('../php/register.php', {
+    fetch('/php/register.php', {
         method: 'POST',
         body: formData
     })

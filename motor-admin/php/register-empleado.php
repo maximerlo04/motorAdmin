@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $nombre = $connection->real_escape_string($_POST['nombre']);
@@ -20,7 +20,7 @@ if (!$stmt) {
 $stmt->bind_param("sssssid", $nombre, $email, $dni, $telefono, $direccion, $especialidad, $valor_hora);
 
 if ($stmt->execute()) {
-    header("Location: ../../motor-admin/ADMINISTRADOR/tabla-usuarios.php?tabla=empleados");
+    header("Location: //motor-admin/ADMINISTRADOR/tabla-usuarios.php?tabla=empleados");
     exit();
 } else {
     echo "Error al insertar: " . $stmt->error;
@@ -41,7 +41,7 @@ $stmt->close();
             VALUES ('$nombre', '$email', '$dni', '$telefono', '$direccion', '$especialidad', '$valor_hora')";
 
     if ($connection->query($sql) === TRUE) {
-        header("Location: ../../motor-admin/ADMINISTRADOR/tabla-usuarios.php?tabla=empleados");
+        header("Location: //motor-admin/ADMINISTRADOR/tabla-usuarios.php?tabla=empleados");
         exit();
     }
 

@@ -282,6 +282,6 @@ class Cache
     }
 }
 
-if (file_exists(realpath(__DIR__ . "/../../lib/res/broken_image.svg"))) {
-    Cache::$broken_image = realpath(__DIR__ . "/../../lib/res/broken_image.svg");
+if (file_exists(realpath(__DIR__ . "///lib/res/broken_image.svg"))) {
+    Cache::$broken_image = realpath(__DIR__ . "///lib/res/broken_image.svg");
 }

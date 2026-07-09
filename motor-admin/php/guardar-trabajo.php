@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id_usuario = intval($_POST['id_usuario']);
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $stmt = $connection->prepare($query);
   $stmt->bind_param("iiisi", $id_usuario, $id_empleado, $id_servicio, $descripcion, $horas_estimadas);
   if ($stmt->execute()) {
-        header("Location: ../ADMINISTRADOR/asignar-trabajos.php");
+        header("Location: /ADMINISTRADOR/asignar-trabajos.php");
         exit();
     } else {
         echo "Error al crear trabajo.";

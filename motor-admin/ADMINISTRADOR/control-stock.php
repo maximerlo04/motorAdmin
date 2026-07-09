@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -17,8 +17,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
 </head>
 <body>
     <?php
-include("../UTILS/sidebar.php");
-include("../connection.php");
+include("/UTILS/sidebar.php");
+include("/connection.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"])) {
     $id = $_POST["id"];
@@ -60,7 +60,7 @@ $result = mysqli_query($connection, $sql);
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="row g-3" action="../php/agregar_producto.php" method="POST" enctype="multipart/form-data">
+        <form class="row g-3" action="/php/agregar_producto.php" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
                 <input name="Nombre" type="text" class="form-control" placeholder="Nombre" required>
             </div>
@@ -233,7 +233,7 @@ function deleteProduct() {
     const formData = new FormData();
     formData.append('id', currentDeleteId);
 
-    fetch('../php/eliminar_producto.php', {
+    fetch('/php/eliminar_producto.php', {
         method: 'POST',
         body: formData
     })

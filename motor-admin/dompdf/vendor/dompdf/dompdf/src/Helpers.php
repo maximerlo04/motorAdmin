@@ -161,7 +161,7 @@ class Helpers
         $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
         
         // partially reproduced from https://stackoverflow.com/a/1243431/264628
-        /* replace '//' or '/./' or '/foo/../' with '/' */
+        /* replace '//' or '/./' or '/foo//' with '/' */
         $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
         for ($n=1; $n>0; $path=preg_replace($re, '/', $path, -1, $n)) {}
 

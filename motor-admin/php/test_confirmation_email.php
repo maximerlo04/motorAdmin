@@ -84,7 +84,7 @@ if ($is_cli) {
 } else {
     echo "<hr>";
     echo "<p><strong>Nota:</strong> Este archivo debe ser eliminado en producción por seguridad.</p>";
-    echo "<p><a href='../CLIENTE/contacto.php'>Ir a la página de contacto</a></p>";
-    echo "<p><a href='../ADMINISTRADOR/almacen-resenia.php'>Ir al panel de administración</a></p>";
+    echo "<p><a href='/CLIENTE/contacto.php'>Ir a la página de contacto</a></p>";
+    echo "<p><a href='/ADMINISTRADOR/almacen-resenia.php'>Ir al panel de administración</a></p>";
 }
 ?> 

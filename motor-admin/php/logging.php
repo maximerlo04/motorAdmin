@@ -1,6 +1,6 @@
 <?php
 session_start(); // Debe ser lo primero
-include("../connection.php");
+include("/connection.php");
 
 
 // Validación básica
@@ -35,25 +35,25 @@ if ($user_data && password_verify($password, $user_data['contrasenia'])) {
 
     switch($user_data['rol']) {
         case 'Cliente':
-            header("Location: ../CLIENTE/inicio.php");
+            header("Location: /CLIENTE/inicio.php");
             break;
         case 'Empleado':
-            header("Location: ../PAGES/resenia.php");
+            header("Location: /PAGES/resenia.php");
             break;
         case 'Admin':
-            header("Location: ../ADMINISTRADOR/tabla-usuarios.php");
+            header("Location: /ADMINISTRADOR/tabla-usuarios.php");
             break;
         default:
-            header("Location: ../PAGES/inicio.php");
+            header("Location: /PAGES/inicio.php");
     }
     exit;
 } else {
-    header("Location: ../PAGES/index.php?login=1&error=1");
+    header("Location: /PAGES/index.php?login=1&error=1");
     exit;
 }
 ?>
 /*/header('Content-Type: application/json');
-include("../connection.php");
+include("/connection.php");
 
 $email = mysqli_real_escape_string($connection, $_POST["email"]);
 $consulta=mysqli_query($connection, "SELECT * FROM usuarios where email='$email'");
@@ -74,16 +74,16 @@ $resultado=mysqli_num_rows($consulta);
         $rol=$_SESSION['valid'];
         switch($rol){
             case'Cliente':
-                header("Location:../PAGES/turnos");
+                header("Location:/PAGES/turnos");
                 breaK;
             case'Empleado':
-                header("Location:../PAGES/resenia.php");
+                header("Location:/PAGES/resenia.php");
                 breaK;
             case'Admin':
-                header("Location:../ADMINISTRADOR/almacen-resenia.php");
+                header("Location:/ADMINISTRADOR/almacen-resenia.php");
                 breaK;
         }
-        header("Location:../PAGES/inicio.php");// ... PAGINA DEL USUARIO
+        header("Location:/PAGES/inicio.php");// ... PAGINA DEL USUARIO
     }
     }
 

@@ -1,5 +1,5 @@
 <?php
-include '../../connection.php';
+include '//connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sdi", $nombre, $costo_base, $id);
 
     if ($stmt->execute()) {
-        header("Location: ../../ADMINISTRADOR/ABM-servicios.php");
+        header("Location: //ADMINISTRADOR/ABM-servicios.php");
         exit();
     } else {
         echo "Error al actualizar el servicio.";

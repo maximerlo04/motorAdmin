@@ -1,6 +1,6 @@
 <?php
 
-include("../connection.php");
+include("/connection.php");
 
 // Incluir la clase MailHelper
 require_once 'config/MailHelper.php';
@@ -30,17 +30,17 @@ if ($result) {
         
         // Redirigir con mensaje de éxito
         if ($email_sent) {
-            header("Location: ../CLIENTE/contacto.php?success=1");
+            header("Location: /CLIENTE/contacto.php?success=1");
         } else {
-            header("Location: ../CLIENTE/contacto.php?success=1&email_error=1");
+            header("Location: /CLIENTE/contacto.php?success=1&email_error=1");
         }
         
     } catch (Exception $e) {
         // Si hay error en el email, igual redirigir con éxito pero indicando el problema
-        header("Location: ../CLIENTE/contacto.php?success=1&email_error=1");
+        header("Location: /CLIENTE/contacto.php?success=1&email_error=1");
     }
 } else {
     // Error al guardar en la base de datos
-    header("Location: ../CLIENTE/contacto.php?error=1");
+    header("Location: /CLIENTE/contacto.php?error=1");
 }
 ?>

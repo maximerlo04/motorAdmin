@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 // Verificar si la sesión está activa y el rol es 'Admin'
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -16,15 +16,15 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     <title>Almacén de Contactos</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+0wPthOhA8rsVjQerV_D3B3z_oB-4o5uG0i3F_M4hK2f" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/turnos.css">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/turnos.css">
     
 </head>
 
 <body>
     <?php
-    include("../UTILS/sidebar.php");
-    include("../connection.php");
+    include("/UTILS/sidebar.php");
+    include("/connection.php");
     $sql = "SELECT * FROM mensajes ORDER BY fecha DESC";
     $result = mysqli_query($connection,$sql);
     
@@ -95,7 +95,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../php/respuesta.php" method="POST">
+                    <form action="/php/respuesta.php" method="POST">
                     <div class="mb-3">
                         <label for="modal-email">Email:</label>
                         <input name="email" type="email" class="form-control" id="modal-email" readonly>

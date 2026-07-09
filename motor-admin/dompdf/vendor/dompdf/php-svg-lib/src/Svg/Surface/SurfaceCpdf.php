@@ -34,7 +34,7 @@ class SurfaceCpdf implements SurfaceInterface
         if (!$canvas) {
             $canvas = new \Svg\Surface\CPdf(array(0, 0, $w, $h));
             $refl = new \ReflectionClass($canvas);
-            $canvas->fontcache = realpath(dirname($refl->getFileName()) . "/../../fonts/")."/";
+            $canvas->fontcache = realpath(dirname($refl->getFileName()) . "///fonts/")."/";
         }
 
         // Flip PDF coordinate system so that the origin is in

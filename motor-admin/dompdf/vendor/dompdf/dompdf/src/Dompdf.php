@@ -258,7 +258,7 @@ class Dompdf
             $this->setOptions(new Options());
         }
 
-        $versionFile = realpath(__DIR__ . '/../VERSION');
+        $versionFile = realpath(__DIR__ . '//VERSION');
         if (($version = file_get_contents($versionFile)) !== false) {
             $version = trim($version);
             if ($version !== '$Format:<%h>$') {

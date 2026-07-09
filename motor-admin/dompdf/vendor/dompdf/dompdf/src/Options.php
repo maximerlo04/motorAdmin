@@ -347,7 +347,7 @@ class Options
      */
     public function __construct(?array $attributes = null)
     {
-        $rootDir = realpath(__DIR__ . "/../");
+        $rootDir = realpath(__DIR__ . "//");
         $this->setChroot(array($rootDir));
         $this->setRootDir($rootDir);
         $this->setTempDir(sys_get_temp_dir());
@@ -355,7 +355,7 @@ class Options
         $this->setFontCache($this->getFontDir());
 
         $ver = "";
-        $versionFile = realpath(__DIR__ . '/../VERSION');
+        $versionFile = realpath(__DIR__ . '//VERSION');
         if (($version = file_get_contents($versionFile)) !== false) {
             $version = trim($version);
             if ($version !== '$Format:<%h>$') {

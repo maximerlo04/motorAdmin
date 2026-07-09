@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -18,8 +18,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
 </head>
 <body>
     <?php
-    include("../UTILS/sidebar.php");
-    include("../connection.php");
+    include("/UTILS/sidebar.php");
+    include("/connection.php");
 
     // Consulta para presupuestos (consultas)
     $sqlConsultas = "SELECT * FROM consultas ORDER BY fecha DESC";

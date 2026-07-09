@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 // Verificar si la sesión está activa y el rol es 'Cliente'
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -17,12 +17,12 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="/CSS/index.css">
     </head>
 <body>
-    <?php include("../UTILS/header-cliente-pages.php"); ?>
+    <?php include("/UTILS/header-cliente-pages.php"); ?>
     <?php
-    include '../connection.php';
+    include '/connection.php';
     $servicios = $connection->query("SELECT * FROM servicios");
     ?>
 
@@ -122,7 +122,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
                 </div>
             </div>
         </div>
-    </div> <?php include("../UTILS/footer.php"); ?>
+    </div> <?php include("/UTILS/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -131,7 +131,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
             
             const formData = new FormData(this);
             
-            fetch('../php/procesar_consultas.php', {
+            fetch('/php/procesar_consultas.php', {
                 method: 'POST',
                 body: formData
             })

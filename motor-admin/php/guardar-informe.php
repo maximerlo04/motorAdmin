@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id_trabajo'];
@@ -11,6 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
 }
 
-header("Location: ../ADMINISTRADOR/asignar-trabajos.php");
+header("Location: /ADMINISTRADOR/asignar-trabajos.php");
 exit;
 ?>

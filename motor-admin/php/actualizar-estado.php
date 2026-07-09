@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = intval($_POST['id_trabajo']);
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "UPDATE trabajos SET estado = '$estado' WHERE id = $id";
 
     if (mysqli_query($connection, $query)) {
-        header("Location: ../ADMINISTRADOR/asignar-trabajos.php");
+        header("Location: /ADMINISTRADOR/asignar-trabajos.php");
         exit;
     } else {
         echo "Error al actualizar el estado: " . mysqli_error($connection);

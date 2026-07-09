@@ -46,7 +46,7 @@ if (!file_exists('config/mail_config.php')) {
 }
 
 // Verificar que existe PHPMailer
-if (!file_exists('../PHPMailer-master/PHPMailer-master/src/PHPMailer.php')) {
+if (!file_exists('/PHPMailer-master/PHPMailer-master/src/PHPMailer.php')) {
     showMessage("❌ Error: No se encuentra PHPMailer", "error");
     exit;
 }
@@ -112,6 +112,6 @@ if ($is_cli) {
 } else {
     echo "<hr>";
     echo "<p><strong>Nota:</strong> Este archivo debe ser eliminado en producción por seguridad.</p>";
-    echo "<p><a href='../ADMINISTRADOR/almacen-resenia.php'>Volver al panel de administración</a></p>";
+    echo "<p><a href='/ADMINISTRADOR/almacen-resenia.php'>Volver al panel de administración</a></p>";
 }
 ?> 

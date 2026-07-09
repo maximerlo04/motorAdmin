@@ -14,11 +14,11 @@ if (!isset($_SESSION['rol'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../CSS/index.css">
+  <link rel="stylesheet" href="/CSS/index.css">
 </head>
 <body>
   <?php
-    include("../UTILS/header-cliente-pages.php");
+    include("/UTILS/header-cliente-pages.php");
   ?>
   <section class="container my-5 d-grid gap-3">
     <h2 class="text-center mb-5">Reseñas y Testimonios</h2>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['rol'])) {
     </div>
   </section>
   <?php
-    include("../UTILS/footer.php");
+    include("/UTILS/footer.php");
   ?>
 </body>
 </html>

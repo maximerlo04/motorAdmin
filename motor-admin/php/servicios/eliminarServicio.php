@@ -1,5 +1,5 @@
 <?php
-include '../../connection.php';
+include '//connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     $stmt->execute();
     $stmt->close();
 
-    header("Location: ../../ADMINISTRADOR/ABM-servicios.php");
+    header("Location: //ADMINISTRADOR/ABM-servicios.php");
     exit();
 }
 ?>

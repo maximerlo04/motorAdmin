@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 // Obtener los datos del POST
 $userId = $_POST['id'];
 $nuevoRol = $_POST['rol'];

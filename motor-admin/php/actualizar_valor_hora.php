@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id_empleado'];
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("di", $valor_hora, $id);
 
     if ($stmt->execute()) {
-        header("Location: ../ADMINISTRADOR/tabla-usuarios.php?tabla=empleados&actualizado=ok");
+        header("Location: /ADMINISTRADOR/tabla-usuarios.php?tabla=empleados&actualizado=ok");
         exit();
     } else {
         echo "Error al actualizar el valor.";

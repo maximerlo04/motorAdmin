@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
         if ($_SESSION['rol']!=='Admin')
         {
-          header("Location:../PAGES/index.php");
+          header("Location:/PAGES/index.php");
         } 
  ?>
 <!DOCTYPE html>
@@ -20,8 +20,8 @@ if (!isset($_SESSION)) {
 </head>
 <body>
     <?php
-        include("../UTILS/sidebar.php");
-        include("../connection.php");
+        include("/UTILS/sidebar.php");
+        include("/connection.php");
         // Obtener lista de clientes
         $clients = mysqli_query($connection, "SELECT id, nombre, patente, modelo FROM usuarios WHERE rol != 'Admin'");
         // Obtener lista de empleados
@@ -69,7 +69,7 @@ if (!isset($_SESSION)) {
                 <h4 class="mb-0"><i class="fas fa-briefcase me-2"></i> Asignar Nuevo Trabajo</h4>
             </div>
             <div class="card-body">
-                <form action="../php/guardar-trabajo.php" method="POST" class="row g-4">
+                <form action="/php/guardar-trabajo.php" method="POST" class="row g-4">
 
                     <div class="col-12"> <label for="cliente" class="form-label">Cliente</label>
                         <select id="cliente" name="id_usuario" class="form-select select2" required>
@@ -182,7 +182,7 @@ if (!isset($_SESSION)) {
                 <td><?= htmlspecialchars($row['descripcion']) ?></td>
                 <td><?= htmlspecialchars($row['horas_estimadas']) ?? '-' ?></td>
                 <td>
-                    <form method="POST" action="../php/actualizar-estado.php">
+                    <form method="POST" action="/php/actualizar-estado.php">
                         <input type="hidden" name="id_trabajo" value="<?= $row['id'] ?>">
                         <select name="estado" class="form-select form-select-sm" onchange="this.form.submit()">
                             <option value="Pendiente" <?= $row['estado'] == 'Pendiente' ? 'selected' : '' ?>>Pendiente</option>
@@ -255,7 +255,7 @@ if (!isset($_SESSION)) {
     <div class="modal fade" id="modalInforme" tabindex="-1" aria-labelledby="modalInformeLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-            <form id="formInforme" method="POST" action="../php/guardar-informe.php">
+            <form id="formInforme" method="POST" action="/php/guardar-informe.php">
                 <div class="modal-header">
                 <h5 class="modal-title" id="modalInformeLabel">Informe del Trabajo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
@@ -350,7 +350,7 @@ if (!isset($_SESSION)) {
 
     const trabajosActivos = <?= json_encode($listaTrabajos) ?>;
 
-    document.querySelector('form[action="../php/guardar-trabajo.php"]').addEventListener('submit', function(e) {
+    document.querySelector('form[action="/php/guardar-trabajo.php"]').addEventListener('submit', function(e) {
         const idEmpleado = document.getElementById('empleado').value;
         const selectCliente = document.getElementById('cliente');
         const idCliente = selectCliente.value;
@@ -393,7 +393,7 @@ if (!isset($_SESSION)) {
             const formData = new FormData();
             formData.append('id', trabajoIdAEliminar);
 
-            fetch('../php/eliminar_trabajo.php', {
+            fetch('/php/eliminar_trabajo.php', {
                 method: 'POST',
                 body: formData
             })
@@ -447,7 +447,7 @@ if (!isset($_SESSION)) {
         formData.append('id', trabajoIdAEditar);
         formData.append('descripcion', descripcion);
 
-        fetch('../php/actualizar_descripcion.php', {
+        fetch('/php/actualizar_descripcion.php', {
             method: 'POST',
             body: formData
         })
@@ -487,7 +487,7 @@ if (!isset($_SESSION)) {
         formData.append('id', trabajoId);
         formData.append('id_empleado', empleadoId);
 
-        fetch('../php/actualizar_empleado.php', {
+        fetch('/php/actualizar_empleado.php', {
             method: 'POST',
             body: formData
         })

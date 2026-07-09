@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 // Verificar si la sesión está activa y el rol es 'Admin'
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -17,13 +17,13 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+0wPthOhA8rsVjQerV_D3B3z_oB-4o5uG0i3F_M4hK2f" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../CSS/index.css">    
+    <link rel="stylesheet" href="/CSS/index.css">    
 </head>
 
 <body>
     <?php
-    include '../connection.php';
-    include("../UTILS/sidebar.php");
+    include '/connection.php';
+    include("/UTILS/sidebar.php");
     // Buscar trabajos finalizados
     $queryTrabajosFinalizados = "SELECT t.id, u.nombre
             FROM trabajos t 
@@ -33,7 +33,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
     ?>
     <div class="container mt-5">
         <h2>Generar Nueva Factura</h2>
-        <form action="../php/facturacion/guardar-factura.php" method="POST">
+        <form action="/php/facturacion/guardar-factura.php" method="POST">
             <div class="mb-3">
                 <label for="id_trabajo" class="form-label">Trabajo finalizado</label>
                 <select class="form-select" name="id_trabajo" required>
@@ -117,7 +117,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                         <div class='modal fade' id='modalPago{$row['id']}' tabindex='-1' aria-labelledby='modalPagoLabel{$row['id']}' aria-hidden='true'>
                         <div class='modal-dialog'>
                             <div class='modal-content'>
-                            <form action='../php/facturacion/cambiar-estado.php' method='POST'>
+                            <form action='/php/facturacion/cambiar-estado.php' method='POST'>
                                 <div class='modal-header'>
                                 <h5 class='modal-title' id='modalPagoLabel{$row['id']}'>Confirmar Pago</h5>
                                 <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Cerrar'></button>
@@ -141,9 +141,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
                     }
                     echo "<td>";
                     if (!$row['archivo_pdf']) {
-                        echo "<a href='../php/facturacion/generar-pdf.php?id={$row['id']}' class='btn btn-sm btn-outline-primary'>Generar PDF</a>";
+                        echo "<a href='/php/facturacion/generar-pdf.php?id={$row['id']}' class='btn btn-sm btn-outline-primary'>Generar PDF</a>";
                     } else {
-                        echo "<a href='../facturas/{$row['archivo_pdf']}' target='_blank'>Ver PDF</a>";
+                        echo "<a href='/facturas/{$row['archivo_pdf']}' target='_blank'>Ver PDF</a>";
                     }
                     echo "</td></tr>";
                 }

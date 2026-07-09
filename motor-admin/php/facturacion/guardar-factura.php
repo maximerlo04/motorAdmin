@@ -1,5 +1,5 @@
 <?php
-include("../../connection.php");
+include("//connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_trabajo = intval($_POST['id_trabajo']);
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    header("Location: ../../ADMINISTRADOR/facturacion.php?success=1");
+    header("Location: //ADMINISTRADOR/facturacion.php?success=1");
     exit();
 
 }

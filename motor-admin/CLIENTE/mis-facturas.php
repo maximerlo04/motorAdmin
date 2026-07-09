@@ -2,11 +2,11 @@
 if (!isset($_SESSION)) session_start();
 
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 
-include '../connection.php';
+include '/connection.php';
 $id = $_SESSION['id']; // Asegúrate de que esta variable esté en la sesión
 
 $query = "
@@ -27,10 +27,10 @@ $result = $connection->query($query);
     <meta charset="UTF-8">
     <title>Mis Facturas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="/CSS/index.css">
 </head>
 <body>
-    <?php include("../UTILS/header-cliente-pages.php"); ?>
+    <?php include("/UTILS/header-cliente-pages.php"); ?>
 
     <div class="container my-5">
         <h2 class="text-center mb-4">Mis Facturas</h2>
@@ -59,7 +59,7 @@ $result = $connection->query($query);
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="../facturas/factura_<?= $row['id'] ?>.pdf" class="btn btn-sm btn-outline-primary">
+                                    <a href="/facturas/factura_<?= $row['id'] ?>.pdf" class="btn btn-sm btn-outline-primary">
                                         Descargar PDF
                                     </a>
                                 </td>
@@ -73,7 +73,7 @@ $result = $connection->query($query);
         <?php endif; ?>
     </div>
 
-    <?php include("../UTILS/footer.php"); ?>
+    <?php include("/UTILS/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

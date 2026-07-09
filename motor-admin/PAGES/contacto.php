@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="/CSS/index.css">
 </head>
 <body>
     <?php
-        include("../UTILS/header-pages.php");
+        include("/UTILS/header-pages.php");
     ?>
     <section class="section container py-5">
         <h2 class="mb-4 text-center">Contáctanos</h2>
-        <form class="row g-3" action="../php/procesar_formulario_de_contacto.php" method="POST">
+        <form class="row g-3" action="/php/procesar_formulario_de_contacto.php" method="POST">
             <div class="col-md-6">
                 <input
                     name="nombre"

@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -19,8 +19,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Admin') {
 </head>
 <body>
     <?php
-        include("../UTILS/sidebar.php");
-        include("../connection.php");
+        include("/UTILS/sidebar.php");
+        include("/connection.php");
         $sqlEmpleado = "SELECT 
   e.id,
   e.nombre AS nombre,
@@ -75,7 +75,7 @@ JOIN especialidades esp ON e.id_especialidad = esp.id
                     <h4 class="mb-0"><i class="fas fa-user-plus me-2"></i> Registrar Nuevo Empleado</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="../php/register-empleado.php" class="row g-4">
+                    <form method="POST" action="/php/register-empleado.php" class="row g-4">
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -151,7 +151,7 @@ JOIN especialidades esp ON e.id_especialidad = esp.id
                             <td><?= htmlspecialchars($row['especialidad']) ?></td>
                             <td><?= htmlspecialchars($row['fecha']) ?></td>
                             <td>
-                                <form method="POST" action="../php/actualizar_valor_hora.php" class="d-flex">
+                                <form method="POST" action="/php/actualizar_valor_hora.php" class="d-flex">
                                     <input type="hidden" name="id_empleado" value="<?= $row['id'] ?>">
                                     <input type="number" step="0.01" name="valor_hora" class="form-control form-control-sm me-1" 
                                         value="<?= $row['valor_hora'] ?>" style="width: 90px;">
@@ -314,7 +314,7 @@ JOIN especialidades esp ON e.id_especialidad = esp.id
         const formData = new FormData();
         formData.append('id', currentDeleteId);
 
-        const url = isUser ? '../php/eliminar_usuario.php' : '../php/eliminar_empleado.php';
+        const url = isUser ? '/php/eliminar_usuario.php' : '/php/eliminar_empleado.php';
 
         fetch(url, {
             method: 'POST',
@@ -363,7 +363,7 @@ JOIN especialidades esp ON e.id_especialidad = esp.id
       // Guardar estado anterior para revertir si hay error
       const estadoAnterior = !this.checked;
 
-      fetch('../php/actualizar-rol.php', {
+      fetch('/php/actualizar-rol.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'

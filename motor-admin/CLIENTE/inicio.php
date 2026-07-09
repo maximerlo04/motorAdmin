@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 // Verificar si la sesión está activa y el rol es 'Admin'
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
-    header("Location: ../PAGES/index.php");
+    header("Location: /PAGES/index.php");
     exit();
 }
 ?>
@@ -17,8 +17,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
     <title>MotorAdmin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/inicio.css">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/inicio.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <style>
       .transition-span {
@@ -39,7 +39,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
 </head>
 <body>
     <?php
-      include("../UTILS/header-cliente-pages.php");
+      include("/UTILS/header-cliente-pages.php");
     ?>
     <h1 class="text-center fw-bold display-4 my-4 animate__animated animate__rubberBand animate__fast">
       <span class="transition-span transition-span-motor" style="color: #12344D;">Motor</span>
@@ -56,7 +56,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
               como pila res fundamentales.</p>
           </div>
           <div class="col-md-6 text-center">
-            <img src="../images/historia-taller.jpeg" alt="fotoAuto" class="img-fluid rounded">
+            <img src="/images/historia-taller.jpeg" alt="fotoAuto" class="img-fluid rounded">
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
       <div class="container">
         <div class="row align-items-center flex-column flex-md-row">
           <div class="col-md-6 mb-3 mb-md-0 text-center">
-            <img src="../images/quienes-somos.jpg" alt="fotoNosotros" class="img-fluid rounded w-100">
+            <img src="/images/quienes-somos.jpg" alt="fotoNosotros" class="img-fluid rounded w-100">
           </div>
           <div class="col-md-6">
             <h3>¿Quiénes somos?</h3>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
             <a href="./turnos.php"><button class="btn btn-primary mt-2">Reserva tu turno</button></a>
           </div>
           <div class="col-md-6 text-center">
-            <img src="../images/mision-vision.jpg" alt="fotoCalendario" class="img-fluid rounded w-100">
+            <img src="/images/mision-vision.jpg" alt="fotoCalendario" class="img-fluid rounded w-100">
           </div>
         </div>
       </div>
@@ -152,7 +152,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'Cliente') {
     </div>
     </section>
     <?php
-      include("../UTILS/footer.php");
+      include("/UTILS/footer.php");
     ?>
-    <script src="../JS/inicio.js"></script>
+    <script src="/JS/inicio.js"></script>
 </body>

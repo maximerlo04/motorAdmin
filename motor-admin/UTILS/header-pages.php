@@ -6,14 +6,14 @@ session_start();
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../CSS/index.css" rel="stylesheet" type="text/css">
-  <link href="../CSS/pages-style.css" rel="stylesheet" type="text/css">
+  <link href="/CSS/index.css" rel="stylesheet" type="text/css">
+  <link href="/CSS/pages-style.css" rel="stylesheet" type="text/css">
   <title>MotorAdmin</title>
 </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-      <a class="navbar-brand" href="../PAGES/index.php"><img src="../images/motorAdmin-logo.png" alt="Logo" style="width: 50px; height: auto;"></a>
+      <a class="navbar-brand" href="/PAGES/index.php"><img src="/images/motorAdmin-logo.png" alt="Logo" style="width: 50px; height: auto;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,13 +21,13 @@ session_start();
       <div class="collapse navbar-collapse bg-light" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="../PAGES/index.php">Inicio</a>
+            <a class="nav-link" href="/PAGES/index.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../PAGES/servicios.php">Servicios</a>
+            <a class="nav-link" href="/PAGES/servicios.php">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../PAGES/contacto.php">Contáctanos</a>
+            <a class="nav-link" href="/PAGES/contacto.php">Contáctanos</a>
           </li>
         </ul>
         <div class="d-flex">
@@ -45,7 +45,7 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="loginForm" action="../php/logging.php" method="POST">
+          <form id="loginForm" action="/php/logging.php" method="POST">
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Email</label>
               <input type="text" name="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
@@ -90,7 +90,7 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="registerForm" action="../php/register.php" method="POST">
+          <form id="registerForm" action="/php/register.php" method="POST">
             <div class="mb-3">
               <label for="registerName" class="form-label">Nombre</label>
               <input type="text" name="nombre" class="form-control" id="registerName" required>
@@ -182,7 +182,7 @@ session_start();
 
       const formData = new FormData(this);
 
-      fetch('../php/register.php', {
+      fetch('/php/register.php', {
         method: 'POST',
         body: formData
       })

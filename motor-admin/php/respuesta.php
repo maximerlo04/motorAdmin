@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("/connection.php");
 
 // Incluir la clase MailHelper
 require_once 'config/MailHelper.php';
@@ -26,8 +26,8 @@ $email_sent = $mailHelper->sendContactResponse($email, $nombre_usuario, $asunto,
 
 // Redirigir con mensaje de éxito o error
 if ($email_sent) {
-    header("Location: ../ADMINISTRADOR/almacen-resenia.php?success=1");
+    header("Location: /ADMINISTRADOR/almacen-resenia.php?success=1");
 } else {
-    header("Location: ../ADMINISTRADOR/almacen-resenia.php?error=1");
+    header("Location: /ADMINISTRADOR/almacen-resenia.php?error=1");
 }
 ?>

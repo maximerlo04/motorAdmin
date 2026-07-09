@@ -65,7 +65,7 @@
                 "issues": "https://github.com/dompdf/dompdf/issues",
                 "source": "https://github.com/dompdf/dompdf/tree/v3.1.0"
             },
-            "install-path": "../dompdf/dompdf"
+            "install-path": "/dompdf/dompdf"
         },
         {
             "name": "dompdf/php-font-lib",
@@ -113,7 +113,7 @@
                 "issues": "https://github.com/dompdf/php-font-lib/issues",
                 "source": "https://github.com/dompdf/php-font-lib/tree/1.0.1"
             },
-            "install-path": "../dompdf/php-font-lib"
+            "install-path": "/dompdf/php-font-lib"
         },
         {
             "name": "dompdf/php-svg-lib",
@@ -162,7 +162,7 @@
                 "issues": "https://github.com/dompdf/php-svg-lib/issues",
                 "source": "https://github.com/dompdf/php-svg-lib/tree/1.0.0"
             },
-            "install-path": "../dompdf/php-svg-lib"
+            "install-path": "/dompdf/php-svg-lib"
         },
         {
             "name": "masterminds/html5",
@@ -232,7 +232,7 @@
                 "issues": "https://github.com/Masterminds/html5-php/issues",
                 "source": "https://github.com/Masterminds/html5-php/tree/2.9.0"
             },
-            "install-path": "../masterminds/html5"
+            "install-path": "/masterminds/html5"
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -300,7 +300,7 @@
                 "issues": "https://github.com/MyIntervals/PHP-CSS-Parser/issues",
                 "source": "https://github.com/MyIntervals/PHP-CSS-Parser/tree/v8.7.0"
             },
-            "install-path": "../sabberworm/php-css-parser"
+            "install-path": "/sabberworm/php-css-parser"
         }
     ],
     "dev": true,

@@ -201,7 +201,7 @@ To see what you can do with output formatting, look at the tests in `tests/Outpu
 
 @font-face {
   font-family: "CrassRoots";
-  src: url("../media/cr.ttf");
+  src: url("/media/cr.ttf");
 }
 
 html, body {
@@ -272,7 +272,7 @@ class Sabberworm\CSS\CSSList\Document#4 (2) {
               private $oURL =>
               class Sabberworm\CSS\Value\CSSString#12 (2) {
                 private $sString =>
-                string(15) "../media/cr.ttf"
+                string(15) "/media/cr.ttf"
                 protected $iLineNo =>
                 int(5)
               }
@@ -443,7 +443,7 @@ class Sabberworm\CSS\CSSList\Document#4 (2) {
 
 ```css
 @charset "utf-8";
-@font-face {font-family: "CrassRoots";src: url("../media/cr.ttf");}
+@font-face {font-family: "CrassRoots";src: url("/media/cr.ttf");}
 html, body {font-size: 1.6em;}
 @keyframes mymove {from {top: 0px;} to {top: 200px;}}
 ```
